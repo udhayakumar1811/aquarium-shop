@@ -7,9 +7,9 @@ function App() {
     <>
 
     <Home 
-    // name= "Kannan"
-    // age={22}
-    // city ="Covai" 
+    name= "Kannan"
+    age={22}
+    city ="Covai" 
     />
 
     </>
