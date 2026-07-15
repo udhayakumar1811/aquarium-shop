@@ -9,6 +9,7 @@ function App() {
     <Home 
     name= "Kannan"
     age={22}
+    mobile={9872634357}
     city ="Covai" 
     />
 
