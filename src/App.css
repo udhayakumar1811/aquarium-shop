@@ -1,76 +1,93 @@
-.body{
+.body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-
-.table{
-border-collapse: collapse;
-border-color: black;
-margin-top: 20px;
-color: black;
-text-align: left;
-}
-
-th{
-  font-weight: bold;
-
-}
-
-.search{
-  margin-top: 50px;
+.search {
+  width: 1000px;
   display: flex;
   justify-content: space-between;
-  gap:400px;
-
+  align-items: center;
+  margin: 40px 0 20px;
 }
 
-
-input{
-  width: 400px;
+.search-box {
+  width: 350px;
   height: 40px;
-  border: 1px solid rgb(105, 105, 105) ;
-  padding: 5px;
-  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
   border-radius: 5px;
-
+  padding: 0 10px;
+  background-color: white;
 }
 
-input:focus{
-  outline:none;
+.search-box input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
 }
 
-svg{
+.icon {
+  color: gray;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.table {
+  width: 1000px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  background-color: aqua;
+  color: black;
+  padding: 15px;
+  border: 1px solid black;
+}
+
+.table td {
+  background-color: rgb(211, 239, 255);
+  color: rgb(36, 36, 36);
+  padding: 15px;
+  border: 1px solid rgb(97, 97, 97);
+}
+
+.add {
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 180px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.add-icon {
+  font-size: 18px;
+}
+
+.edit {
+  color: blue;
+  cursor: pointer;
   width: 20px;
   height: 20px;
 }
 
-.add{
-  display: flex;
-align-items: center; 
-gap:10px ;
-background-color: rgb(17, 17, 255);
-color: white;
-width: 150px;
-height: 40px;
-border: none;
-border-radius: 5px;
-font-size: 20px;
-font-weight: ;
-}
-
-.addicon{
-  font-weight: bolder;
-}
-
-
-.edit{
-  color: blue;
-}
-
-
-.del{
+.delete {
   color: red;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
