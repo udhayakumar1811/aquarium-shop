@@ -12,9 +12,14 @@ function App() {
     age={22}
     mobile={9872634357}
     city ="Covai" 
+<<<<<<< HEAD
     /> */}
 
     <Table/>
+=======
+    
+    />
+>>>>>>> 36d3d691373ca6b144840571ed1de67a216e6928
 
     </>
 
