@@ -1,30 +1,17 @@
-import { Home } from "./Home"
-import Table from "./Table"
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
+
+
+
 
 
 function App() {
-
   return (
     <>
-
-    {/* <Home 
-    name= "Kannan"
-    age={22}
-    mobile={9872634357}
-    city ="Covai" 
-<<<<<<< HEAD
-    /> */}
-
-    <Table/>
-=======
-    
-    />
->>>>>>> 36d3d691373ca6b144840571ed1de67a216e6928
-
+      <Navbar />
+      <Hero />
     </>
-
-  )
+  );
 }
 
-
-export default App
+export default App;
