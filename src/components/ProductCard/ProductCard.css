@@ -1,0 +1,14 @@
+.details-btn{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    padding:12px;
+    background:#0099cc;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+}
+
+.details-btn:hover{
+    background:#0077aa;
+}

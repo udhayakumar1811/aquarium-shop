@@ -1,0 +1,87 @@
+.top-selling{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.tabs{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    list-style:none;
+}
+
+.tabs li{
+    padding:10px 25px;
+    background:#eee;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+.tabs .active{
+    background:#0099cc;
+    color:#fff;
+}
+
+.top-selling .container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.card h3{
+    margin:20px 0 10px;
+}
+
+.stars{
+    color:gold;
+    display:flex;
+    justify-content:center;
+    gap:5px;
+}
+
+.card h4{
+    color:#0099cc;
+    margin:20px 0;
+}
+
+.btns{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.btns button{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#0099cc;
+    color:#fff;
+    cursor:pointer;
+}
