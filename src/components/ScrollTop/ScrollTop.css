@@ -1,0 +1,27 @@
+.scroll-top{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#0099cc;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}

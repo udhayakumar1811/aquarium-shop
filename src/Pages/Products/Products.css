@@ -1,0 +1,11 @@
+.products-page{
+    display:flex;
+    background:#f5f5f5;
+    min-height:100vh;
+}
+
+.products-content{
+    margin-left:260px;
+    width:100%;
+    padding:40px;
+}

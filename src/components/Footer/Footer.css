@@ -6,7 +6,7 @@
 
 .footer-container{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:40px;
     width:90%;
     margin:auto;
@@ -50,8 +50,16 @@
     transition:.3s;
 }
 
+.social-icons svg{
+
+    transition:.3s;
+
+}
+
 .social-icons svg:hover{
-    color:#38bdf8;
+
+    transform:scale(1.2);
+
 }
 
 .copyright{

@@ -62,3 +62,43 @@
 .hero-btn:hover {
     background: #e05500;
 }
+
+
+.hero-content button{
+
+    transition:.3s;
+
+}
+
+.hero-content button:hover{
+
+    transform:translateY(-3px);
+
+    background:#0077aa;
+
+}
+
+
+@media (max-width:991px){
+
+    .hero-container{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:40px;
+
+    }
+
+    .hero-image img{
+
+        max-width:350px;
+
+    }
+
+}

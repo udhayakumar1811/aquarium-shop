@@ -1,59 +1,105 @@
 import "./Navbar.css";
-import {
-  FaSearch,
-  FaHeart,
-  FaShoppingCart,
-  FaUser,
-} from "react-icons/fa";
-
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
+import { CartContext } from "../../context/CartContext";
 
 function Navbar() {
+  const {
+    cart,
+    wishlist,
+    search,
+    setSearch,
+  } = useContext(CartContext);
+
   return (
     <nav className="navbar">
-
       <div className="container">
 
-        <div className="logo">
+        {/* Logo */}
+        <NavLink to="/" className="logo">
           <h2>Aquafy</h2>
-        </div>
+        </NavLink>
 
+        {/* Menu */}
         <ul className="menu">
 
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">
+              Home
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to="/shop">Shop</NavLink>
+            <NavLink to="/shop">
+              Shop
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/about">
+              About
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/contact">
+              Contact
+            </NavLink>
           </li>
 
         </ul>
 
+        {/* Search */}
+        <div className="search-box">
+
+          <input
+            type="text"
+            placeholder="Search Aquarium Products..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+        </div>
+
+        {/* Icons */}
         <div className="icons">
 
-          <FaSearch />
+          <div className="badge-box">
 
-          <FaHeart />
+            <NavLink to="/wishlist">
+
+    <FaHeart />
+
+    <span>{wishlist.length}</span>
+
+</NavLink>
+
+            
+
+          </div>
 
           <NavLink to="/cart">
-            <FaShoppingCart />
+
+            <div className="badge-box">
+
+              <FaShoppingCart />
+
+              <span>{cart.length}</span>
+
+            </div>
+
           </NavLink>
 
-          <FaUser />
+          <NavLink to="/login">
+
+            <FaUser />
+
+          </NavLink>
 
         </div>
 
       </div>
-
     </nav>
   );
 }

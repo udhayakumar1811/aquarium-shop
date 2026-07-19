@@ -1,127 +1,214 @@
-import { useContext } from "react";
+import "./Cart.css";
 
-import { CartContext } from "../../context/CartContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-
-import { FaTrash } from "react-icons/fa";
+import { CartContext } from "../../context/CartContext";
 
 function Cart() {
 
-  const {
+    const {
 
-    cart,
+        cart,
+        increaseQty,
+        decreaseQty,
+        removeItem,
 
-    increaseQty,
+    } = useContext(CartContext);
 
-    decreaseQty,
+    const total = cart.reduce(
 
-    removeItem,
+        (sum, item) => sum + item.price * item.quantity,
 
-  } = useContext(CartContext);
+        0
 
-  const total = cart.reduce(
+    );
 
-    (sum, item) => sum + item.price * item.quantity,
+    return (
 
-    0
+        <>
 
-  );
+            <Navbar />
 
-  return (
+            <section className="cart-page">
 
-    <>
+                <div className="container">
 
-      <Navbar />
+                    <h2 className="cart-title">
 
-      <section className="container py-5">
+                        Shopping Cart
 
-        <h2 className="mb-4">
+                    </h2>
 
-          Shopping Cart
+                    {
 
-        </h2>
+                        cart.length === 0 ?
 
-        {
+                        (
 
-          cart.length === 0 ?
+                            <h3 className="empty-cart">
 
-          (
+                                Your Cart is Empty
 
-            <h3>Your Cart is Empty</h3>
+                            </h3>
 
-          )
+                        )
 
-          :
+                        :
 
-          (
+                        (
 
-            cart.map(item => (
+                            <>
 
-              <div
-                key={item.id}
-                className="border rounded p-3 mb-3 d-flex justify-content-between align-items-center"
-              >
+                                {
 
-                <div>
+                                    cart.map((item) => (
 
-                  <h4>{item.name}</h4>
+                                        <div
+                                            className="cart-item"
+                                            key={item.id}
+                                        >
 
-                  <p>₹{item.price}</p>
+                                            <div className="cart-left">
+
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                />
+
+                                                <div className="cart-info">
+
+                                                    <h3>
+
+                                                        {item.name}
+
+                                                    </h3>
+
+                                                    <p>
+
+                                                        {item.category}
+
+                                                    </p>
+
+                                                    <div className="cart-price">
+
+                                                        ₹{item.price}
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div className="cart-right">
+
+                                                <div className="qty-box">
+
+                                                    <button
+                                                        onClick={() =>
+                                                            decreaseQty(item.id)
+                                                        }
+                                                    >
+
+                                                        -
+
+                                                    </button>
+
+                                                    <span>
+
+                                                        {item.quantity}
+
+                                                    </span>
+
+                                                    <button
+                                                        onClick={() =>
+                                                            increaseQty(item.id)
+                                                        }
+                                                    >
+
+                                                        +
+
+                                                    </button>
+
+                                                </div>
+
+                                                <div className="sub-total">
+
+                                                    ₹{item.price * item.quantity}
+
+                                                </div>
+
+                                                <button
+                                                    className="delete-btn"
+                                                    onClick={() =>
+                                                        removeItem(item.id)
+                                                    }
+                                                >
+
+                                                    <FaTrash />
+
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    ))
+
+                                }
+
+                                <div className="cart-footer">
+
+                                    <h2 className="total-price">
+
+                                        Total : ₹{total}
+
+                                    </h2>
+
+                                    <div className="cart-buttons">
+
+                                        <Link to="/shop">
+
+                                            <button className="continue-btn">
+
+                                                Continue Shopping
+
+                                            </button>
+
+                                        </Link>
+
+                                        <Link to="/checkout">
+
+    <button className="checkout-btn">
+
+        Checkout
+
+    </button>
+
+</Link>
+
+                                    </div>
+
+                                </div>
+
+                            </>
+
+                        )
+
+                    }
 
                 </div>
 
-                <div className="d-flex align-items-center gap-3">
+            </section>
 
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => decreaseQty(item.id)}
-                  >
-                    -
-                  </button>
+            <Footer />
 
-                  <h5>{item.quantity}</h5>
+        </>
 
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => increaseQty(item.id)}
-                  >
-                    +
-                  </button>
-
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => removeItem(item.id)}
-                  >
-                    <FaTrash />
-                  </button>
-
-                </div>
-
-              </div>
-
-            ))
-
-          )
-
-        }
-
-        <hr />
-
-        <h3>
-
-          Total : ₹{total}
-
-        </h3>
-
-      </section>
-
-      <Footer />
-
-    </>
-
-  );
+    );
 
 }
 

@@ -46,3 +46,21 @@
     cursor:pointer;
     border-radius:0 8px 8px 0;
 }
+
+@media (max-width:991px){
+
+.newsletter-container{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.newsletter-form{
+
+    width:100%;
+
+}
+
+}

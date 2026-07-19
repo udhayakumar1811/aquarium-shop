@@ -1,85 +1,135 @@
 import "./Product.css";
-import { useContext } from "react";
+
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 
+
 import products from "../../data/products";
-import { CartContext } from "../../context/CartContext";
 
 import Navbar from "../../components/Navbar/Navbar";
+
+import { CartContext } from "../../context/CartContext";
+
 import Footer from "../../components/Footer/Footer";
 
 function Product() {
-  const { id } = useParams();
-  const { addToCart } = useContext(CartContext);
 
-  const product = products.find(
-    (item) => item.id === Number(id)
-  );
+    const { id } = useParams();
 
-  if (!product) {
-    return (
-      <>
-        <Navbar />
-        <h2 style={{ textAlign: "center", margin: "100px 0" }}>
-          Product Not Found
-        </h2>
-        <Footer />
-      </>
+    const product = products.find(
+        (item) => item.id === Number(id)
     );
-  }
 
-  return (
-    <>
-      <Navbar />
+    const [quantity, setQuantity] = useState(1);
 
-      <section className="product-details">
-        <div className="container">
+    const { addToCart } = useContext(CartContext);
 
-          <div className="product-image">
-            <img
-              src={product.image}
-              alt={product.name}
-            />
-          </div>
+    if (!product) {
 
-          <div className="product-info">
+        return <h2>Product Not Found</h2>;
 
-            <h1>{product.name}</h1>
+    }
 
-            <h3>{product.category}</h3>
+    return (
 
-            <h2>₹{product.price}</h2>
+        <>
 
-            <p>
-              Premium quality aquarium product with excellent
-              health and long-lasting performance.
-            </p>
+            <Navbar />
 
-            <div className="quantity">
-              <button>-</button>
-              <span>1</span>
-              <button>+</button>
-            </div>
+            <section className="product-details">
 
-            <button
-  className="cart-btn"
-  onClick={() => addToCart(product)}
+                <div className="container product-container">
+
+                    <div className="product-image">
+
+                        <img
+                            src={product.image}
+                            alt={product.name}
+                        />
+
+                    </div>
+
+                    <div className="product-content">
+
+                        <h1>{product.name}</h1>
+
+                        <p>{product.category}</p>
+
+                        <div className="product-rating">
+
+    ⭐ {product.rating} / 5
+
+</div>
+
+<h2>
+
+    ₹{product.price}
+
+</h2>
+
+<div className="stock">
+
+    {product.stock > 0 ? "✅ In Stock" : "❌ Out of Stock"}
+
+</div>
+
+<div className="quantity-box">
+
+    <button
+        onClick={() => {
+            if (quantity > 1) {
+                setQuantity(quantity - 1);
+            }
+        }}
+    >
+        -
+    </button>
+
+    <span>{quantity}</span>
+
+    <button
+        onClick={() => {
+            if (quantity < product.stock) {
+                setQuantity(quantity + 1);
+            }
+        }}
+    >
+        +
+    </button>
+
+</div>
+
+<button
+    className="cart-btn"
+    onClick={() => {
+
+        for (let i = 0; i < quantity; i++) {
+            addToCart(product);
+        }
+
+    }}
 >
-  Add To Cart
+    Add To Cart
 </button>
 
-            <button className="buy-btn">
-              Buy Now
-            </button>
+                        <p>
 
-          </div>
+                            {product.description}
 
-        </div>
-      </section>
+                        </p>
 
-      <Footer />
-    </>
-  );
+                    </div>
+
+                </div>
+
+            </section>
+
+            <Footer />
+
+        </>
+
+    );
+
 }
 
 export default Product;

@@ -1,0 +1,145 @@
+.featured-products{
+    padding:80px 0;
+    background:#f8fcff;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-header h2{
+    font-size:40px;
+    color:#0f172a;
+    margin-bottom:10px;
+}
+
+.section-header p{
+    font-size:18px;
+    color:#666;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.product-card{
+    position:relative;
+    background:#ffffff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.product-image{
+    position:relative;
+    background:#eef8ff;
+    padding:20px;
+}
+
+.product-image img{
+    width:100%;
+    height:220px;
+    object-fit:contain;
+    transition:.3s;
+}
+
+.product-card:hover .product-image img{
+    transform:scale(1.08);
+}
+
+.discount-badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#ef4444;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    z-index:10;
+}
+
+.new-badge{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:#10b981;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    z-index:10;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    font-size:20px;
+    color:#222;
+    margin-bottom:10px;
+}
+
+.product-info p{
+    color:#666;
+    margin-bottom:12px;
+}
+
+.rating{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    color:#f59e0b;
+    margin-bottom:12px;
+}
+
+.product-info h4{
+    color:#0099cc;
+    font-size:24px;
+    margin-bottom:20px;
+}
+
+.product-buttons{
+    display:flex;
+    justify-content:space-between;
+}
+
+.product-buttons button{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#eef8ff;
+    cursor:pointer;
+    transition:.3s;
+    font-size:18px;
+}
+
+.product-buttons button:hover{
+    background:#0099cc;
+    color:white;
+}
+
+@media(max-width:991px){
+
+    .section-header h2{
+        font-size:32px;
+    }
+
+    .products-grid{
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    }
+
+}

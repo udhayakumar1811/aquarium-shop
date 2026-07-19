@@ -1,52 +1,57 @@
 const products = [
+
   {
     id: 1,
-    name: "Betta Fish",
-    category: "Fish",
+    name: "Halfmoon Betta",
+    category: "Betta Fish",
     price: 499,
-    rating: 5,
     image: "/images/betta.jpg",
+    rating: 4.8,
+    stock: 15,
+    discount: 10,
+    isNew: true,
+    description: "Healthy Halfmoon Betta Fish with vibrant colors."
   },
+
   {
     id: 2,
-    name: "Guppy Fish",
-    category: "Fish",
+    name: "Red Guppy",
+    category: "Guppy Fish",
     price: 299,
-    rating: 5,
     image: "/images/guppy.jpg",
+    rating: 4.6,
+    stock: 25,
+    discount: 5,
+    isNew: true,
+    description: "Premium Red Guppy Fish suitable for planted aquariums."
   },
+
   {
     id: 3,
     name: "Gold Fish",
-    category: "Fish",
+    category: "Gold Fish",
     price: 399,
-    rating: 4,
     image: "/images/goldfish.jpg",
+    rating: 4.7,
+    stock: 20,
+    discount: 15,
+    isNew: false,
+    description: "Healthy Gold Fish with bright golden color."
   },
+
   {
     id: 4,
-    name: "Glass Tank",
+    name: "Aquarium Tank",
     category: "Tank",
     price: 2499,
-    rating: 5,
     image: "/images/tank.jpg",
-  },
-  {
-    id: 5,
-    name: "Fish Food",
-    category: "Food",
-    price: 199,
-    rating: 4,
-    image: "/images/food.jpg",
-  },
-  {
-    id: 6,
-    name: "Aquarium Plant",
-    category: "Plant",
-    price: 149,
-    rating: 4,
-    image: "/images/plant.jpg",
-  },
+    rating: 4.9,
+    stock: 8,
+    discount: 20,
+    isNew: true,
+    description: "Premium glass aquarium tank with crystal clear finish."
+  }
+
 ];
 
 export default products;

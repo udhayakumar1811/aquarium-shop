@@ -1,0 +1,33 @@
+.chart{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:10px;
+
+    margin-top:30px;
+
+}
+
+.bars{
+
+    height:250px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:15px;
+
+}
+
+.bar{
+
+    flex:1;
+
+    background:#0099cc;
+
+    border-radius:8px 8px 0 0;
+
+}

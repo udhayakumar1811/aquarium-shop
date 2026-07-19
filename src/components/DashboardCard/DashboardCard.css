@@ -1,0 +1,15 @@
+.dashboard-card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.dashboard-card h4{
+    color:#666;
+    margin-bottom:15px;
+}
+
+.dashboard-card h2{
+    font-size:32px;
+}
