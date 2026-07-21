@@ -1,7 +1,6 @@
 import Navbar from "../../components/Navbar/Navbar";
 import Hero from "../../components/Hero/Hero";
 import Categories from "../../components/Categories/Categories";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import TopSelling from "../../components/TopSelling/TopSelling";
 import OfferBanner from "../../components/OfferBanner/OfferBanner";
 import Featured from "../../components/Featured/Featured";
@@ -20,7 +19,6 @@ function Home() {
       <Hero />
       <Categories />
       <FeaturedProducts />
-      <ProductCard />
       <TopSelling />
       <OfferBanner />
       <Featured />

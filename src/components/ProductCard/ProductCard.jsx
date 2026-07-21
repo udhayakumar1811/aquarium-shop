@@ -1,90 +1,79 @@
 import "./ProductCard.css";
-import products from "../../data/products";
 
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import {
   FaHeart,
   FaShoppingCart,
+  FaEye,
   FaStar,
 } from "react-icons/fa";
 
-import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
-function ProductCard() {
+function ProductCard({ product }) {
 
-const {
-  addToCart,
-  addToWishlist,
-  search,
-} = useContext(CartContext);
+  const { addToCart, addToWishlist } = useContext(CartContext);
+
+  // Prevent app crash if product is undefined
+  if (!product) {
+    return null;
+  }
 
   return (
-    <section className="products">
+    <div className="product-card">
 
-      <div className="container">
+      {product.discount > 0 && (
+        <span className="discount-badge">
+          -{product.discount}%
+        </span>
+      )}
 
-        {products
-  .filter((product) =>
-    product.name.toLowerCase().includes(search.toLowerCase())
-  )
-  .map((product) => (
+      <img
+        src={product.image}
+        alt={product.name}
+      />
 
-            <div className="product-card" key={product.id}>
+      <div className="product-content">
 
-              <img
-                src={product.image}
-                alt={product.name}
-              />
+        <h3>{product.name}</h3>
 
-              <div className="product-content">
+        <p>{product.category}</p>
 
-                <h3>{product.name}</h3>
+        <div className="rating">
+          <FaStar />
+          <span>{product.rating}</span>
+        </div>
 
-                <p>{product.category}</p>
+        <h2>₹{product.price}</h2>
 
-                <div className="rating">
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                </div>
+        <div className="product-actions">
 
-                <h4>₹{product.price}</h4>
+          <button
+            onClick={() => addToWishlist(product)}
+            title="Add to Wishlist"
+          >
+            <FaHeart />
+          </button>
 
-                <div className="product-icons">
+          <button
+            onClick={() => addToCart(product)}
+            title="Add to Cart"
+          >
+            <FaShoppingCart />
+          </button>
 
-                  <button
-                    onClick={() => addToWishlist(product)}
-                  >
-                    <FaHeart />
-                  </button>
+          <Link to={`/product/${product.id}`}>
+            <button title="View Details">
+              <FaEye />
+            </button>
+          </Link>
 
-                  <button
-                    onClick={() => addToCart(product)}
-                  >
-                    <FaShoppingCart />
-                  </button>
-
-                </div>
-
-                <Link
-                  className="details-btn"
-                  to={`/product/${product.id}`}
-                >
-                  View Details
-                </Link>
-
-              </div>
-
-            </div>
-
-        ))}
+        </div>
 
       </div>
 
-    </section>
+    </div>
   );
 }
 
